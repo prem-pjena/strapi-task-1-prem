@@ -78,22 +78,7 @@ After it restarts, go to **Content Manager** (left sidebar):
 ---
 
 ## 📁 Project Structure
-strapi-task-1-prem/
-├── config/
-├── database/
-│   └── migrations/
-├── public/
-├── src/
-├── types/
-│   └── generated/
-├── .env.example
-├── .gitignore
-├── README.md
-├── favicon.png
-├── package.json
-├── package-lock.json
-├── tsconfig.json
-
+strapi-task-1-prem/ ├── config/ ├── database/ │ └── migrations/ ├── public/ ├── src/ ├── types/ │ └── generated/ ├── .env.example ├── .gitignore ├── README.md ├── favicon.png ├── package.json ├── package-lock.json ├── tsconfig.json
 ---
 
 
