@@ -101,7 +101,7 @@ strapi-task-1-prem/
 
 
 ## 🎥 Loom Video
-[Loom Link Here]
+https://www.loom.com/share/5deeb84e31a843cc95733e578fb0cc77?sid=f2d9e49b-2f54-4708-8e0f-e6a5b2184675
 
 ---
 
