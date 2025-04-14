@@ -1,61 +1,94 @@
-# 🚀 Getting started with Strapi
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+# 🚀 Strapi Setup - Task 1 | PearlThoughts Internship
 
-### `develop`
-
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
-
-```
-npm run develop
-# or
-yarn develop
-```
-
-### `start`
-
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
-
-```
-npm run start
-# or
-yarn start
-```
-
-### `build`
-
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
-
-```
-npm run build
-# or
-yarn build
-```
-
-## ⚙️ Deployment
-
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
-
-```
-yarn strapi deploy
-```
-
-## 📚 Learn more
-
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
-
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
-
-## ✨ Community
-
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
+## 📌 Task Overview
+- Clone Strapi repo from https://github.com/strapi/strapi.git
+- Run it locally, explore folder structure
+- Start the admin panel and create a sample content type
+- Push the setup to GitHub and raise a Pull Request
 
 ---
 
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+## ⚙️ Setup Steps
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/strapi/strapi.git
+cd strapi
+```
+
+### 2. Install Dependencies
+```bash
+yarn install
+```
+
+### 3. Build the Monorepo
+```bash
+yarn build
+```
+
+### 4. Create a Sample Project
+```bash
+npx create-strapi-app my-test-app --quickstart
+cd my-test-app
+```
+
+### 5. Run the Project
+```bash
+npm run develop
+```
+
+Admin panel: http://localhost:1337/admin
+
+---
+
+## Create a Sample Content Type in Strapi
+
+### ✅ 1. Register your Admin Account
+When Strapi opens in the browser (http://localhost:1337/admin), fill in your Name, Email, Password, and click Let’s start.
+
+If it’s stuck here, try the fixes I shared earlier.
+
+### ✅ 2. Create a New Collection Type
+- Click "Create new collection type"
+- Name it **Article**
+- Click Continue
+
+### ✅ 3. Add Fields
+Now add some fields to your Article:
+- Click "Add another field"
+- Choose:
+  - **Text →** Name it **title**
+  - **Rich Text →** Name it **content**
+  - **Media →** Name it **image**
+
+### ✅ 4. Save the Content Type
+- Click "Finish"
+- Then click "Save" at the top right corner.
+
+Strapi will restart the server to apply changes.
+
+### ✅ 5. Add a New Entry
+After it restarts, go to **Content Manager** (left sidebar):
+- Click on **Article**
+- Click **Create new entry**
+- Fill in the title and content
+- Click **Save**
+
+---
+
+## 📚 Folder Structure Observed (in monorepo)
+- `packages/core/admin` – React admin panel
+- `packages/core/strapi` – Main CMS core
+- `packages/strapi-plugin-*` – Plugins
+- `examples` – Sample apps
+
+---
+
+## 🎥 Loom Video
+[Loom Link Here]
+
+---
+
+## ✅ Pull Request
+[PR Link Here]
