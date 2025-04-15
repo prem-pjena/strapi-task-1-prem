@@ -129,3 +129,14 @@ dist
 build
 .strapi-updater.json
 .strapi-cloud.json
+
+# Ignore Terraform files
+.terraform/
+*.tfstate
+*.tfstate.*
+
+# Ignore AWS credentials
+~/.aws/credentials
+
+# Ignore node_modules if you are using Node.js
+node_modules/
