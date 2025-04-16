@@ -1,15 +1,31 @@
 
-# 🚀 Strapi Setup - Task 1 | PearlThoughts Internship
+# 🚀 Strapi Setup & Deployment - PearlThoughts Internship
 
 ## 📌 Task Overview
-- Clone Strapi repo from https://github.com/strapi/strapi.git
-- Run it locally, explore folder structure
-- Start the admin panel and create a sample content type
-- Push the setup to GitHub and raise a Pull Request
+
+### ✅ Task 1 - Local Setup
+- Clone the official Strapi repo
+- Explore folder structure
+- Run admin panel locally
+- Create a sample content type and entry
+- Push to GitHub and raise a Pull Request
+
+🔗 PR: [prem-task-1](https://github.com/PearlThoughts-DevOps-Internship/strapi--Monitor-hub/compare/prem-task-1?expand=1)  
+🎥 Loom: [Task 1 - Local Setup Video](https://www.loom.com/share/5deeb84e31a843cc95733e578fb0cc77?sid=f2d9e49b-2f54-4708-8e0f-e6a5b2184675)
 
 ---
 
-## ⚙️ Setup Steps
+### ✅ Task 2 - Deploy Strapi on EC2 using Terraform
+- Wrote Terraform code to provision an EC2 instance
+- Installed and configured Strapi via `user_data.sh`
+- Setup complete infrastructure as code: `main.tf`, `variables.tf`, `outputs.tf`
+- Strapi runs and is accessible via the EC2 public IP
+
+🔗 PR: [prem-task-2](https://github.com/PearlThoughts-DevOps-Internship/strapi--Monitor-hub/pull/5)
+
+---
+
+## ⚙️ Task 1 - Local Setup Instructions
 
 ### 1. Clone the Repository
 ```bash
@@ -38,47 +54,34 @@ cd my-test-app
 npm run develop
 ```
 
-Admin panel: http://localhost:1337/admin
+### 🔗 Admin Panel:  
+http://localhost:1337/admin
 
 ---
 
-## Create a Sample Content Type in Strapi
+## 📝 Create Sample Content Type in Strapi
 
-### ✅ 1. Register your Admin Account
-When Strapi opens in the browser (http://localhost:1337/admin), fill in your Name, Email, Password, and click Let’s start.
+### 1. Register Admin Account
+Visit http://localhost:1337/admin and register your admin account.
 
-If it’s stuck here, try the fixes I shared earlier.
+### 2. Create a Collection Type
+- Collection Type Name: `Article`
+- Fields:
+  - **Text** → `title`
+  - **Rich Text** → `content`
+  - **Media** → `image`
 
-### ✅ 2. Create a New Collection Type
-- Click "Create new collection type"
-- Name it **Article**
-- Click Continue
-
-### ✅ 3. Add Fields
-Now add some fields to your Article:
-- Click "Add another field"
-- Choose:
-  - **Text →** Name it **title**
-  - **Rich Text →** Name it **content**
-  - **Media →** Name it **image**
-
-### ✅ 4. Save the Content Type
-- Click "Finish"
-- Then click "Save" at the top right corner.
-
-Strapi will restart the server to apply changes.
-
-### ✅ 5. Add a New Entry
-After it restarts, go to **Content Manager** (left sidebar):
-- Click on **Article**
+### 3. Add New Entry
+- Go to Content Manager > Article
 - Click **Create new entry**
-- Fill in the title and content
+- Fill in the fields
 - Click **Save**
 
 ---
 
-## 📁 Project Structure
+## 📁 Task 1: Project Structure (Post Setup)
 
+```
 strapi-task-1-prem/
 ├── config/
 ├── database/
@@ -94,16 +97,53 @@ strapi-task-1-prem/
 ├── package.json
 ├── package-lock.json
 ├── tsconfig.json
-
-
-
-
-
-
-## 🎥 Loom Video
-https://www.loom.com/share/5deeb84e31a843cc95733e578fb0cc77?sid=f2d9e49b-2f54-4708-8e0f-e6a5b2184675
+```
 
 ---
 
-## ✅ Pull Request
-https://github.com/PearlThoughts-DevOps-Internship/strapi--Monitor-hub/compare/prem-task-1?expand=1
+## ☁️ Task 2: Terraform Deployment (Strapi on EC2)
+
+### 📂 `terraform/` Folder Contents:
+```
+terraform/
+├── main.tf           # EC2 instance, security group, key-pair
+├── variables.tf      # Variables used in main.tf
+├── outputs.tf        # Output EC2 public IP
+├── user_data.sh      # Bootstraps EC2 with Node, Yarn, and Strapi
+```
+
+---
+
+### ✅ Steps:
+1. Initialize Terraform
+   ```bash
+   terraform init
+   ```
+
+2. Review the execution plan
+   ```bash
+   terraform plan
+   ```
+
+3. Apply the configuration
+   ```bash
+   terraform apply
+   ```
+
+4. Access Strapi
+   - Use the EC2 Public IP from Terraform output
+   - Go to `http://<EC2_PUBLIC_IP>:1337/admin`
+
+5. Destroy the infrastructure (when task is done)
+   ```bash
+   terraform destroy
+   ```
+
+---
+
+## 🧠 Learnings & Highlights
+
+- Explored Strapi’s structure and custom content modeling
+- Understood monorepo build and Strapi CLI
+- Automated Strapi deployment using Terraform and EC2
+- Gained hands-on experience with infrastructure provisioning
